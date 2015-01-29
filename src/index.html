@@ -7,6 +7,9 @@
 	<link rel="stylesheet" href="css/bookstore.css">
 </head>
 <body>
+
+	<!-- page structure -->
+
 	<div id="navegation" class="navbar navbar-inverse navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="container-fluid">
@@ -28,6 +31,8 @@
 		<hr>  
 	</footer>
 
+	<!-- templates -->
+
 	<script id="CatalogLayout" type="text/template">
 	<div id="Cart" class="row-fluid">
 		<div class="row-fluid">
@@ -48,12 +53,31 @@
 		</div>
 	</div>
 	</script>
+
+	<script id="books-template" type="text/html">
+	<ul>
+		<% _.each(items,function(item) { %>
+		<li><a href="book/'+<%= item.id %> +"><%= item.name %> </li>
+		})
+	</ul>
+	</script>
+
+	<!-- vendor -->
+
 	<script src="../bower_components/jquery/dist/jquery.js"></script>
 	<script src="../bower_components/underscore/underscore.js"></script>
 	<script src="../bower_components/backbone/backbone.js"></script>
 	<script src="../bower_components/marionette/lib/backbone.marionette.js"></script>
 	<script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
+	<!-- app -->
+
 	<script src="js/bookstore.js"></script>
+	<script src="js/book.model.js"></script>
+	<script src="js/booklist.view.js"></script>
+	<script>
+		BookStoreApp.start();
+	</script>
+
 </body>
 </html>
